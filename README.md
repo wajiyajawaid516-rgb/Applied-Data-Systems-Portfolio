@@ -26,6 +26,13 @@
 - Real-time performance analytics with early-warning risk detection (80% threshold).
 - Full-stack architecture with relational data modelling and automated reporting.
 
+### 🌊 [Sewer Flow Analytical QA Framework](./projects/Sewer-Flow-Analytical-QA-Framework)
+**Python | Engineering QA | Hydrology | Streamlit**
+*An automated, reproducible QA framework for sewer flow survey data (MSc Dissertation).*
+- Implemented WaPUG/UDG storm segmentation and RAG health classification logic.
+- Automated upstream-downstream volume balance and diurnal flatness diagnostics.
+- Developed interactive Streamlit dashboard for real-time engineering triage.
+
 ### 🌊 [Sewer Flow Assessment Tool (Arup)](./projects/01-sewer-flow-assessment)
 **Python | Time-Series | Data Integrity**
 *Developed a validation tool for Arup to analyze 1,000+ complex sewer records.*
