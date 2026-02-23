@@ -29,46 +29,27 @@ This is not a tutorial or coursework project. It mirrors a **real production sys
 
 ---
 
-## 🏛️ Architecture
+## 🏗️ System Architecture
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    FRONTEND (Streamlit)                  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────────┐ │
-│  │ Projects │ │Directory │ │Analytics │ │  Reports   │ │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └─────┬──────┘ │
-│       │             │            │              │        │
-└───────┼─────────────┼────────────┼──────────────┼────────┘
-        │             │            │              │
-        ▼             ▼            ▼              ▼
-┌─────────────────────────────────────────────────────────┐
-│                   BACKEND (FastAPI)                      │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────────┐ │
-│  │ Projects │ │Contacts  │ │Time API  │ │Doc Engine  │ │
-│  │   API    │ │   API    │ │          │ │            │ │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └─────┬──────┘ │
-│       │             │            │              │        │
-└───────┼─────────────┼────────────┼──────────────┼────────┘
-        │             │            │              │
-        ▼             ▼            ▼              ▼
-┌─────────────────────────────────────────────────────────┐
-│                   DATABASE (SQLite/SQL)                  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────────┐ │
-│  │ Projects │ │  Orgs &  │ │  Time    │ │  Project   │ │
-│  │ & Jobs   │ │ Contacts │ │ Entries  │ │ Activities │ │
-│  └──────────┘ └──────────┘ └──────────┘ └────────────┘ │
-└─────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    A[Streamlit UI] --> B[FastAPI REST Layer]
+    B --> C[Service Layer: Document/Analytics Engine]
+    C --> D[SQLAlchemy ORM]
+    D --> E[(PostgreSQL / SQLite)]
+    B -- "Async Process" --> F[Workflow Automation Engine]
+    F --> G[Email-to-Task / Batch Processing]
 ```
 
-### Design Decisions
 
+### 🛠️ Key Engineering Decisions
 | Decision | Rationale |
 |----------|-----------|
-| **Separated UI, API, and Database layers** | Ensures any layer can be replaced without rewriting the system |
-| **One-to-many relational model** | Projects → Directory entries → Contacts, avoiding data duplication |
-| **Soft deletes over hard deletes** | Protects production data integrity |
-| **Dev → Prod workflow** | New features start in dev, validated before production deployment |
-| **Rule-based logic over AI** | More reliable for business workflows; AI-ready for future enhancement |
+| **Atomic Transactions** | Ensures data integrity during multi-stage project updates using SQLAlchemy sessions. |
+| **Pydantic Schemas** | Strict type-safety and field validation at the API entry point to prevent SQL injection and data corruption. |
+| **Service Layer Decoupling** | Document generation and analytics logic are isolated for independent scaling and easier unit testing. |
+| **80% Proactive Alerting** | Implemented a 0.8 risk scalar to catch budget overruns before they reach 100%, allowing for management intervention. |
+| **Relational Integrity** | Forced One-to-Many constraints between Organisations, Contacts, and Projects to maintain a "Single Source of Truth." |
 
 > Full architecture documentation: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 

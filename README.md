@@ -15,9 +15,17 @@
 - **Analytics & BI:** Statistical Analysis, Power BI, Time-Series Validation
 - **Governance:** Data Access Controls, Risk Mitigation, Technical Documentation
 
----
+## 🏗️ System Architecture Gallery
+*This portfolio prioritises technical transparency. Every major project is accompanied by a system design diagram to illustrate data flow and architectural decisions.*
 
 ## 🚀 Featured Projects
+
+### 🧠 [OmniClassify AI — Semantic Benchmarking Portal](./projects/OmniClassify-AI)
+**React | FastAPI | Machine Learning | Semantic Analytics**
+*A high-dimensional text classification dashboard for comparative model benchmarking.*
+- Engineered a **React + FastAPI** inference portal for 20-category semantic analysis.
+- Implemented real-time model benchmarking (SVM, Random Forest, Naive Bayes).
+- Visualised probabilistic distribution and performance metrics using **Recharts**.
 
 ### 🏗️ [Automated Project Analytics Platform](./projects/Automated-Project-Analytics-Platform)
 **Python | FastAPI | Streamlit | Automation**
