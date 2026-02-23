@@ -19,6 +19,13 @@
 
 ## 🚀 Featured Projects
 
+### 🏗️ [Automated Project Analytics Platform](./projects/Automated-Project-Analytics-Platform)
+**Python | FastAPI | Streamlit | Automation**
+*A production-grade platform for project analytics and workflow automation.*
+- Automated document processing for 50+ files, reducing admin time by **99%**.
+- Real-time performance analytics with early-warning risk detection (80% threshold).
+- Full-stack architecture with relational data modelling and automated reporting.
+
 ### 🌊 [Sewer Flow Assessment Tool (Arup)](./projects/01-sewer-flow-assessment)
 **Python | Time-Series | Data Integrity**
 *Developed a validation tool for Arup to analyze 1,000+ complex sewer records.*
